@@ -218,3 +218,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# 한글 문서·결과물 (공공기관 문서 업로드 방지)
+*.hwp
+*.hwpx
+*_리포트_*
+*_단어제안_*
