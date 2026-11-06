@@ -36,6 +36,7 @@ def paragraphs(path: Path):
 
 
 def lines_of(text: str, pos):
-    """[(시작 위치, 줄 텍스트)] — 강제 줄바꿈 문자는 줄 끝에서 뺀다"""
+    """[(시작 위치, 줄 텍스트)] — Shift+Enter로 끝난 줄은 끝에 '↵'를 붙인다.
+    '↵'는 글자가 아니라서, 강제 줄바꿈 지점은 '잘린 단어'로 잡히지 않는다."""
     bounds = pos + [len(text)]
-    return [(a, text[a:b].rstrip("\n")) for a, b in zip(bounds, bounds[1:]) if a <= len(text)]
+    return [(a, text[a:b].replace("\n", "↵")) for a, b in zip(bounds, bounds[1:]) if a <= len(text)]
